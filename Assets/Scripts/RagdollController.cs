@@ -57,11 +57,7 @@ public class RagdollController : MonoBehaviour
             jointAngleLimits2D.max = 30f;
             joint.limits = jointAngleLimits2D;
         }
-
-        // leftHandIk.SetActive(false);
-        // leftFootIk.SetActive(false);
-        // rightHandIk.SetActive(false);
-        // rightFootIk.SetActive(false);
+        
     }
 
     public void DisableRagdoll()
@@ -86,10 +82,5 @@ public class RagdollController : MonoBehaviour
             joint.limits = jointAngleLimits2D;
             //joint.enabled = false;
         }
-
-        // leftHandIk.SetActive(true);
-        // leftFootIk.SetActive(true);
-        // rightHandIk.SetActive(true);
-        // rightFootIk.SetActive(true);
     }
 }

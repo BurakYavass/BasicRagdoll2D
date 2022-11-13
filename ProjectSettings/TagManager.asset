@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Character
   - Ball
+  - Ground
+  - BallCenter
   layers:
   - Default
   - TransparentFX
@@ -14,10 +16,10 @@ TagManager:
   - Water
   - UI
   - Ball
-  - 
-  - 
-  - 
-  - 
+  - Character
+  - Ground
+  - BackGround
+  - BallCenter
   - 
   - 
   - 
