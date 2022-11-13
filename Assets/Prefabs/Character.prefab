@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 4759526830917581741}
   - component: {fileID: 4759526830917581734}
   - component: {fileID: 4759526830917581735}
-  - component: {fileID: 4759526830917581732}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -117,7 +116,7 @@ MonoBehaviour:
   - {fileID: 4759526832598386586}
   m_Bounds:
     m_Center: {x: 0.12244511, y: 0.080167055, z: 0}
-    m_Extent: {x: 1.487556, y: 2.2598333, z: 0}
+    m_Extent: {x: 1.487556, y: 2.2598336, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -137,19 +136,6 @@ MonoBehaviour:
   rightHandIk: {fileID: 4759526831676415095}
   leftFootIk: {fileID: 4759526830940787653}
   rightFootIk: {fileID: 4759526831603950858}
---- !u!114 &4759526830917581732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4759526830917581740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0660ed9d8136c7f4b8447daf9a812b17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rdController: {fileID: 4759526830917581735}
 --- !u!1 &4759526830940787653
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +148,7 @@ GameObject:
   - component: {fileID: 4759526830940787705}
   - component: {fileID: 4759526830940787704}
   - component: {fileID: 4759526830940787707}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftDownLeg
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -236,7 +222,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.7904984, y: 0.00000017881388}
+  m_ConnectedAnchor: {x: 0.79049885, y: 0.00000031292427}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -257,7 +243,7 @@ GameObject:
   - component: {fileID: 4759526831016290419}
   - component: {fileID: 4759526831016290418}
   - component: {fileID: 4759526831016290429}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine_1
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -316,7 +302,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!233 &4759526831016290429
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -353,7 +339,7 @@ GameObject:
   - component: {fileID: 4759526831140232986}
   - component: {fileID: 4759526831140233061}
   - component: {fileID: 4759526831140233060}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftShoulder
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -428,7 +414,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.047701437, y: 0.2984971}
+  m_ConnectedAnchor: {x: -0.047701202, y: 0.29849714}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -449,7 +435,7 @@ GameObject:
   - component: {fileID: 4759526831314068643}
   - component: {fileID: 4759526831314068642}
   - component: {fileID: 4759526831314068653}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine_2
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -508,7 +494,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!233 &4759526831314068653
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -524,7 +510,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.44219282, y: -0.000000089406946}
+  m_ConnectedAnchor: {x: 0.44219294, y: -0.00000006705521}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -545,7 +531,7 @@ GameObject:
   - component: {fileID: 4759526831392023790}
   - component: {fileID: 4759526831392023785}
   - component: {fileID: 4759526831392023784}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spine_3
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -606,7 +592,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!233 &4759526831392023784
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -622,7 +608,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.36307508, y: -0.00000030919898}
+  m_ConnectedAnchor: {x: 0.36307496, y: -0.00000032782543}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -643,7 +629,7 @@ GameObject:
   - component: {fileID: 4759526831419879259}
   - component: {fileID: 4759526831419879258}
   - component: {fileID: 4759526831419879333}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RighShoulder
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -718,7 +704,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.015029, y: -0.38946655}
+  m_ConnectedAnchor: {x: 0.015028881, y: -0.38946655}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -739,7 +725,7 @@ GameObject:
   - component: {fileID: 4759526831603950862}
   - component: {fileID: 4759526831603950857}
   - component: {fileID: 4759526831603950856}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightDownLeg
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -813,7 +799,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.9808725, y: 0.00000020861623}
+  m_ConnectedAnchor: {x: 0.9808727, y: 0.000000029802319}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -834,7 +820,7 @@ GameObject:
   - component: {fileID: 4759526831676415083}
   - component: {fileID: 4759526831676415082}
   - component: {fileID: 4759526831676415093}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightArm
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -908,7 +894,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.72804624, y: -0.000000089406925}
+  m_ConnectedAnchor: {x: 0.7280461, y: -0.000000029802308}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -929,7 +915,7 @@ GameObject:
   - component: {fileID: 4759526831784252846}
   - component: {fileID: 4759526831784252841}
   - component: {fileID: 4759526831784252840}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftUpLeg
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -1004,7 +990,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.20057632, y: 0.14796606}
+  m_ConnectedAnchor: {x: -0.20057608, y: 0.14796609}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1025,7 +1011,7 @@ GameObject:
   - component: {fileID: 4759526831932213377}
   - component: {fileID: 4759526831932213376}
   - component: {fileID: 4759526831932213379}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightUpLeg
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -1100,7 +1086,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.15096849, y: -0.2320278}
+  m_ConnectedAnchor: {x: -0.15096825, y: -0.23202775}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1121,7 +1107,7 @@ GameObject:
   - component: {fileID: 4759526832472305447}
   - component: {fileID: 4759526832472305446}
   - component: {fileID: 4759526832472305441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -1195,7 +1181,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.5653274, y: -0.020592177}
+  m_ConnectedAnchor: {x: 0.56532764, y: -0.020592147}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1216,7 +1202,7 @@ GameObject:
   - component: {fileID: 4759526832598386585}
   - component: {fileID: 4759526832598386584}
   - component: {fileID: 4759526832598386587}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftArm
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -1290,7 +1276,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.6723712, y: 0.00000020861616}
+  m_ConnectedAnchor: {x: 0.6723714, y: 0.00000038743002}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1310,7 +1296,7 @@ GameObject:
   - component: {fileID: 4759526832705689770}
   - component: {fileID: 4759526832705689768}
   - component: {fileID: 4759526832705689771}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hips
   m_TagString: Character
   m_Icon: {fileID: 0}
@@ -1371,4 +1357,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
