@@ -2,15 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MouseController : MonoBehaviour
 {
-    [SerializeField] private RagdollController rdController;
-    private Vector2 offset;
-    [SerializeField] private Rigidbody2D _hitObject;
+    [SerializeField] private Rigidbody2D hitObject;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private LayerMask objectMask;
+
+    private RagdollController _rdController;
+    private Camera _cameraMain;
+    private ObjectId _objectId;
     
+    private Vector2 _offset;
+
+    private void Start()
+    {
+        _cameraMain = Camera.main;
+    }
 
     void Update()
     {
@@ -19,60 +28,68 @@ public class MouseController : MonoBehaviour
             Vector3 mouseWorldPPosition = Input.mousePosition;
             mouseWorldPPosition.z = 0f;
             
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero,Mathf.Infinity,objectMask);
+            RaycastHit2D hit = Physics2D.Raycast(_cameraMain.ScreenToWorldPoint(Input.mousePosition), Vector2.zero,Mathf.Infinity,objectMask);
             
             if (hit.collider != null)
             {
-                offset = (Vector2)hit.collider.transform.position - hit.point ;
-                if (hit.collider.gameObject.CompareTag("Character"))
+                _offset = (Vector2)hit.collider.transform.position - hit.point;
+                _objectId = hit.collider.GetComponentInParent<ObjectId>();
+                if (_objectId != null)
                 {
-                    _hitObject = hit.rigidbody;
-                    
-                    if (!rdController.RagdollActive)
+                    if (_objectId.objId == 10)
                     {
-                        rdController.ActivateRagdoll();
+                        hitObject = hit.rigidbody;
+                        _rdController = _objectId.ragdollController;
+                        if (!_rdController.RagdollActive)
+                        {
+                            _rdController.ActivateRagdoll();
+                        }
+                        else
+                        {
+                            _rdController.DisableRagdoll();
+                        }  
                     }
-                    else
+                    else if (_objectId.objId == 20)
                     {
-                        rdController.DisableRagdoll();
-                    }  
-                }
-                else if (hit.collider.CompareTag("BallCenter"))
-                {
-                    _hitObject = hit.rigidbody;
+                        hitObject = hit.rigidbody;
+                    }
                 }
             }
         }
 
-        if (Input.GetMouseButton(0) &&_hitObject)
+        if (Input.GetMouseButton(0) &&hitObject)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePosition = _cameraMain.ScreenToWorldPoint(Input.mousePosition);
             
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero,Mathf.Infinity,layerMask );
+            RaycastHit2D hit = Physics2D.Raycast(_cameraMain.ScreenToWorldPoint(Input.mousePosition), Vector2.zero,Mathf.Infinity,layerMask );
 
-            if (!hit || hit.collider.CompareTag("Ground"))
+            if (!hit || hit.collider.CompareTag("Obstacle"))
             {
-                _hitObject = null;
+                if (_objectId.objId == 10)
+                {
+                    _rdController.DisableRagdoll();
+                }
+                else if (_objectId.objId == 20)
+                {
+                    //Debug.Log("Ball");
+                }
+                hitObject = null;
                 return;
             }
-            _hitObject.MovePosition(mousePosition + offset);
+            hitObject.MovePosition(mousePosition + _offset);
         }
 
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (_hitObject &&_hitObject.CompareTag("Character"))
+            if (hitObject && _objectId.objId == 10)
             {
-                if (!rdController.RagdollActive)
+                if (_rdController.RagdollActive)
                 {
-                    rdController.ActivateRagdoll();
+                    _rdController.DisableRagdoll();
                 }
-                else
-                {
-                    rdController.DisableRagdoll();
-                } 
             }
-            _hitObject = null;
+            hitObject = null;
         }
     }
 }
