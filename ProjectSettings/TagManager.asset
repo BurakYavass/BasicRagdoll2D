@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Character
   - Ball
-  - Ground
   - BallCenter
+  - Obstacle
   layers:
   - Default
   - TransparentFX
