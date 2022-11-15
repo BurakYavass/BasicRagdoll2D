@@ -1,16 +1,17 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public class BodyCollisionHandler : MonoBehaviour
 {
-    private Rigidbody2D _hipsRb2D;
     private RagdollController _rdController;
+    private bool _active = false;
+    private bool _ragdollDisable = false;
     
     private void Start()
     {
-        _hipsRb2D = GetComponent<Rigidbody2D>();
         _rdController = GetComponentInParent<RagdollController>();
     }
     
@@ -18,21 +19,29 @@ public class BodyCollisionHandler : MonoBehaviour
     {
         if (col.collider.CompareTag("Ball")|| col.collider.CompareTag("BallCenter"))
         {
-            
-            //_hipsRb2D.freezeRotation = false;
-            //_rdController.ActivateRagdoll();
-            //_rdController.RecordTransform();
+            if (!_active)
+            {
+                _rdController.ActivateRagdoll();
+                StartCoroutine(Timer());
+                _active = true;
+            }
         }
     }
-    
-    private void OnCollisionExit2D(Collision2D other)
+
+    private void Update()
     {
-        if (other.collider.CompareTag("Ball")|| other.collider.CompareTag("BallCenter"))
+        if (_ragdollDisable)
         {
-            
-            //_hipsRb2D.freezeRotation = true;
-            //_rdController.DisableRagdoll();
+            _ragdollDisable = false;
+            _active = false;
+            _rdController.DisableRagdoll();
         }
     }
-    
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(5);
+        _ragdollDisable = true;
+    } 
+
 }

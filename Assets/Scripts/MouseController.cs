@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class MouseController : MonoBehaviour
 {
@@ -69,13 +65,10 @@ public class MouseController : MonoBehaviour
                 {
                     _rdController.DisableRagdoll();
                 }
-                else if (_objectId.objId == 20)
-                {
-                    //Debug.Log("Ball");
-                }
                 hitObject = null;
                 return;
             }
+            
             hitObject.MovePosition(mousePosition + _offset);
         }
 
