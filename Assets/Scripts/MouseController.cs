@@ -6,6 +6,7 @@ public class MouseController : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private LayerMask objectMask;
 
+
     private RagdollController _rdController;
     private Camera _cameraMain;
     private ObjectId _objectId;
@@ -21,14 +22,18 @@ public class MouseController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mouseWorldPPosition = Input.mousePosition;
-            mouseWorldPPosition.z = 0f;
+            
             
             RaycastHit2D hit = Physics2D.Raycast(_cameraMain.ScreenToWorldPoint(Input.mousePosition), Vector2.zero,Mathf.Infinity,objectMask);
             
             if (hit.collider != null)
             {
-                _offset = (Vector2)hit.collider.transform.position - hit.point;
+                Vector3 mouseWorldPPosition = Input.mousePosition;
+                mouseWorldPPosition = _cameraMain.ScreenToWorldPoint(mouseWorldPPosition);
+
+                _offset = (Vector2)hit.rigidbody.transform.position - (Vector2)mouseWorldPPosition;
+
+
                 _objectId = hit.collider.GetComponentInParent<ObjectId>();
                 if (_objectId != null)
                 {
@@ -53,11 +58,13 @@ public class MouseController : MonoBehaviour
             }
         }
 
+        
+
         if (Input.GetMouseButton(0) &&hitObject)
         {
             Vector2 mousePosition = _cameraMain.ScreenToWorldPoint(Input.mousePosition);
-            
-            RaycastHit2D hit = Physics2D.Raycast(_cameraMain.ScreenToWorldPoint(Input.mousePosition), Vector2.zero,Mathf.Infinity,layerMask );
+                     
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero,Mathf.Infinity,layerMask );
 
             if (!hit || hit.collider.CompareTag("Obstacle"))
             {
@@ -68,8 +75,15 @@ public class MouseController : MonoBehaviour
                 hitObject = null;
                 return;
             }
-            
-            hitObject.MovePosition(mousePosition + _offset);
+
+            mousePosition = mousePosition + _offset;
+
+            //Move rigidbody
+            //hitObject.MovePosition(mousePosition);
+
+            //Rigidbody force
+            Vector2 forceVector = mousePosition - (Vector2)hitObject.transform.position;
+            hitObject.AddForce(forceVector*200, ForceMode2D.Force);
         }
 
 
